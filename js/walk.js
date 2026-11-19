@@ -6,7 +6,7 @@ canvas.height = 300;
 
 // 1. Sprite Sheet Setup (Replace with your own sprite sheet)
 const sprite = new Image();
-sprite.src = "./images/villager-walking-sprite-sheet.png"; // Example: 4 frames arranged horizontally
+sprite.src = "/images/villager-walking-sprite-sheet.png"; // Example: 4 frames arranged horizontally
 let spriteLoaded = false;
 sprite.onload = () => { spriteLoaded = true; };
 
