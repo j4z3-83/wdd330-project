@@ -6,16 +6,16 @@ canvas.height = 300;
 
 // 1. Sprite Sheet Setup (Replace with your own sprite sheet)
 const sprite = new Image();
-sprite.src = "../images/villager-walking-sprite-sheet.png"; // Example: 4 frames arranged horizontally
+sprite.src = "./images/villager-walking-sprite-sheet.png"; // Example: 4 frames arranged horizontally
 let spriteLoaded = false;
 sprite.onload = () => { spriteLoaded = true; };
 
 // 2. Character Configuration
 const character = {
     x: -64,                // Start just off the left edge
-    y: -10,                // Ground height
+    y: 70,                // Ground height
     width: 256,             // Width of a single frame on screen
-    height: 350,            // Height of a single frame on screen
+    height: 256,            // Height of a single frame on screen
     speed: 3,              // Pixels moved per frame
     frameX: 0,             // Current animation frame (0 to totalFrames - 1)
     totalFrames: 7,        // Total columns in your sprite sheet
