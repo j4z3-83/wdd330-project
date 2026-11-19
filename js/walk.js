@@ -16,11 +16,11 @@ const character = {
     y: 70,                // Ground height
     width: 256,             // Width of a single frame on screen
     height: 256,            // Height of a single frame on screen
-    speed: 3,              // Pixels moved per frame
+    speed: 4,              // Pixels moved per frame
     frameX: 0,             // Current animation frame (0 to totalFrames - 1)
     totalFrames: 7,        // Total columns in your sprite sheet
     frameTimer: 0,
-    frameInterval: 6       // Lower = faster leg movement
+    frameInterval: 5       // Lower = faster leg movement
 };
 
 // 3. Main Animation Loop
