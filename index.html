@@ -26,13 +26,35 @@
     </nav>
   </header>
   <main>
-    <h2>Welcome to Minecraft Info Dump</h2>
-    <p>Minecraft Info Dump is a comprehensive resource for all things Minecraft. Find tips, tricks, and strategies to
-      enhance your gameplay experience.</p>
+    <h2></h2>
+    <p></p>
+    <div id="siteStart">
+      <button id="startButton">Start Animation</button>
+    </div>
+
+    <div id="siteLinks">
+      <button id="mobtButton">Mobs</button>
+      <button id="biomesButton">Biomes</button>
+      <button id="itemsButton">Items</button>
+      <button id="enchantmentsButton">Enchantments</button>
+      <button id="structuresButton">Structures</button>
+      <button id="tradesButton">Trades</button>
+      <button id="seedFinderButton">Seed Finder</button>
+    </div>
 
     <canvas id="gameCanvas"></canvas>
 
+    </div>
   </main>
+
+  <script>
+    const startButton = document.getElementById('startButton');
+    const siteLinks = document.getElementById('siteLinks');
+
+    startButton.addEventListener('click', () => {
+      
+    });
+  </script>
 
 </body>
 

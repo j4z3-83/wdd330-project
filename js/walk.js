@@ -1,29 +1,49 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+const startButton = document.getElementById("startButton");
+const siteLinks = document.getElementById("siteLinks");
 
 canvas.width = window.innerWidth;
 canvas.height = 300;
 
-// 1. Sprite Sheet Setup (Replace with your own sprite sheet)
-const sprite = new Image();
-sprite.src = "villager-walking-sprite-sheet.gif"; // Example: 4 frames arranged horizontally
-let spriteLoaded = false;
-sprite.onload = () => { spriteLoaded = true; };
+// 1. Audio Setup (Add your .ogg file paths here)
+const oggFiles = [
+    "villager-idle1.ogg",
+    "villager-idle2.ogg",
+    "villager-idle3.ogg"
+];
 
-// 2. Character Configuration
-const character = {
-    x: -256,                // Start just off the left edge
-    y: 70,                // Ground height
-    width: 256,             // Width of a single frame on screen
-    height: 256,            // Height of a single frame on screen
-    speed: 4,              // Pixels moved per frame
-    frameX: 0,             // Current animation frame (0 to totalFrames - 1)
-    totalFrames: 7,        // Total columns in your sprite sheet
-    frameTimer: 0,
-    frameInterval: 5       // Lower = faster leg movement
+function playRandomOgg() {
+    const randomIndex = Math.floor(Math.random() * oggFiles.length);
+    const audio = new Audio(oggFiles[randomIndex]);
+    audio.play().catch(error => {
+        console.warn("Audio playback failed (likely blocked by browser):", error);
+    });
+}
+
+// 2. Sprite Sheet Setup (Replace with your own sprite sheet)
+const sprite = new Image();
+sprite.src = "villager-walking-sprite-sheet.gif"; // Example: 7 frames arranged horizontally
+let spriteLoaded = false;
+
+sprite.onload = () => {
+    spriteLoaded = true;
 };
 
-// 3. Main Animation Loop
+// 3. Character Configuration
+const character = {
+    x: -300, // Start just off the left edge
+    y: 50, // Ground height
+    width: 300, // Width of a single frame on screen
+    height: 256, // Height of a single frame on screen
+    speed: 4, // Pixels moved per frame
+    frameX: 0, // Current animation frame (0 to totalFrames - 1)
+    totalFrames: 7, // Total columns in your sprite sheet
+    frameTimer: 0,
+    frameInterval: 5 // Lower = faster leg movement
+};
+
+// 4. Main Animation Loop
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -53,18 +73,25 @@ function animate() {
 
         ctx.drawImage(
             sprite,
-            character.frameX * spriteWidth, 0, spriteWidth, spriteHeight, // Source crop
-            character.x, character.y, character.width, character.height     // Destination on canvas
+            character.frameX * spriteWidth,
+            0,
+            spriteWidth,
+            spriteHeight,
+            character.x,
+            character.y,
+            character.width,
+            character.height
         );
-    } else {
-        // Fallback placeholder (bobs up and down slightly to simulate walking)
-        const bobOffset = (character.frameX % 2 === 0) ? 0 : -4;
-        ctx.fillStyle = "#3182ce";
-        ctx.fillRect(character.x, character.y + bobOffset, character.width, character.height);
     }
 
     requestAnimationFrame(animate);
 }
 
-// Start the loop
-animate();
+// 5. Start Trigger
+startButton.addEventListener("click", () => {
+    character.x = -300; // Reset position if clicked again
+    playRandomOgg();
+    animate();
+    siteLinks.classList.add('animate');
+    startButton.remove();
+});
