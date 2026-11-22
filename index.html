@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wdd330 project | home</title>
+  
+  <link rel="stylesheet" href="./css/small.css" />
+  <link rel="stylesheet" href="./css/large.css" />
+
+  <script src="./js/main.js" type="module"></script>
+  <script src="./js/walk.js" type="module"></script>
+
+  <link rel="icon" href="images/villager-head.ico">
+</head>
+
+<body>
+
+  <header>
+    <img src="images/villager-head-logo.webp" alt="Minecraft Logo">
+    <h1 class="site-title">Minecraft Info Dump</h1>
+
+  </header>
+  <main>
+    <h2></h2>
+    <p></p>
+    <div id="siteStart">
+      <button id="startButton">Start Animation</button>
+    </div>
+
+    <div id="siteLinks">
+      <a href="page-mobs.html" class="btn">Mobs</a>
+      <a href="page-biomes.html" class="btn">Biomes</a>
+      <a href="page-items.html" class="btn">Items</a>
+      <a href="page-enchantments.html" class="btn">Enchantments</a>
+      <a href="page-structures.html" class="btn">Structures</a>
+      <a href="page-trades.html" class="btn">Trades</a>
+      <a href="page-seed-finder.html" class="btn">Seed Finder</a>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+  </main>
+
+  <script>
+    const startButton = document.getElementById('startButton');
+    const siteLinks = document.getElementById('siteLinks');
+
+    startButton.addEventListener('click', () => {
+
+    });
+  </script>
+
+</body>
+
+</html>

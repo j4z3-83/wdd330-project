@@ -1,0 +1,192 @@
+:root {
+    --primary-color: #175411;
+    --secondary-color: #002900;
+    --accent-color: #002900;
+    --text-color1: #ffffff;
+    --text-color2: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url('../images/main-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/*--- HAMBURGER MENU ---*/
+.on-screen-menu {
+    display: none;
+}
+
+.off-screen-menu {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 3rem;
+    transition: 0.3s ease;
+}
+
+.off-screen-menu li {
+    list-style-type: none;
+}
+
+.off-screen-menu li a {
+    text-decoration: none;
+    width: 100%;
+    max-width: 125px;
+    display: block;
+    margin: 10px;
+}
+
+.off-screen-menu li a.active {
+    background-color: var(--accent-color);
+}
+
+.off-screen-menu.active {
+    right: 0;
+}
+
+.hamburger {
+    padding: 1rem;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.ham-menu {
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    position: relative;
+    cursor: pointer;
+}
+
+.ham-menu span {
+    height: 6px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 25%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s ease;
+}
+
+.ham-menu span:nth-child(1) {
+    top: 25%;
+}
+
+.ham-menu span:nth-child(3) {
+    top: 75%;
+}
+
+.ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ham-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* --- HEADER STYLES --- */
+header {
+    display: flex;
+}
+
+header img {
+    height: 75px;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    color: var(--text-color1);
+    align-self: center;
+    text-align: center;
+}
+
+/* --- MAIN CONTENT STYLES --- */
+
+canvas {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Adjust based on character height */
+    pointer-events: none;
+    /* Lets users click buttons/links behind the character */
+    z-index: 9999;
+    /* Keeps the character on top of page elements */
+}
+
+#siteStart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#siteLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+}
+
+#siteLinks.animate {
+    animation: wipeRight 1.5s ease-out 0.7s forwards;
+}
+
+@keyframes wipeRight {
+    from {
+        opacity: 1;
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+#siteStart button,
+.btn {
+    background-color: var(--primary-color);
+    color: var(--text-color1);
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 126px;
+    text-align: center;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+}
