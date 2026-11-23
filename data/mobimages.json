@@ -1,0 +1,102 @@
+[
+    {
+        "name": "cow",
+        "faceimage": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/93/CowFace.png/revision/latest?cb=20190804020139",
+        "mainimage": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d8/Cow_JE1.png/revision/latest/scale-to-width-down/1000?cb=20200307074226"
+    },
+    {
+        "name": "sheep",
+        "faceimage": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/b/b1/SheepFace.png/revision/latest?cb=20210114202109",
+        "mainimage": "https://static.wikia.nocookie.net/minecraft_gamepedia/images/e/e2/White_Sheep_JE3_BE6.png/revision/latest?cb=20190809163123"
+    },
+    {
+        "name": "pig",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "chicken",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "horse",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "donkey",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "mule",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "rabbit",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "mooshroom",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "squid",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "glow squid",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "turtle",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "fox",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "panda",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "ocelot",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "parrot",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "bat",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "cod",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "",
+        "faceimage": "",
+        "mainimage": ""
+    },
+    {
+        "name": "",
+        "faceimage": "",
+        "mainimage": ""
+    }
+]

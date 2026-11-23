@@ -1,7 +1,7 @@
 :root {
     --primary-color: #175411;
-    --secondary-color: #002900;
-    --accent-color: #002900;
+    --secondary-color: #a592bf;
+    --accent-color: #e0d9a5;
     --text-color1: #ffffff;
     --text-color2: #000000;
 }
@@ -189,4 +189,25 @@ canvas {
     cursor: pointer;
     font-size: 1rem;
     text-decoration: none;
+}
+
+#mobCard,
+#biomeCard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin: 2rem;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    text-align: center;
+}
+
+.mob-entry,
+.biome-entry{
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+}
+
+.mob-image,
+.biome-image {
+    height: 100px;
 }
