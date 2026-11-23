@@ -4,15 +4,16 @@ HamburgerButton();
 
 async function getData() {
     const url = `https://api.astroworldmc.com/api/v1/biomes`;
-    const mobCard = document.getElementById('biomeCard');
+    const biomeCard = document.getElementById('biomeCard');
 
     try {
         const response = await fetch(url);
         const data = await response.json();
         const items = Array.isArray(data) ? data : (data.data);
 
-        console.log(data)
-        mobCard.innerHTML = '';
+        console.log(data);
+
+        biomeCard.innerHTML = '';
 
         // Note: If your array is nested (e.g., data.results), use data.results.forEach(...)
         items.forEach(entry => {
@@ -25,15 +26,16 @@ async function getData() {
             image.classList.add('biome-image');
 
             image.src = `./images/biomes/${fileName}.webp`;
-            image.alt = entry.name
+            image.alt = entry.name;
+            image.loading = 'lazy';
 
             item.innerHTML = `
-            <h2>${entry.name}</h2>
+            <h3>${entry.name}</h3>
             <p>Dimension: ${entry.dimension}</p>
             `;
 
             item.appendChild(image)
-            mobCard.appendChild(item);
+            biomeCard.appendChild(item);
         });
     } catch (error) {
         console.error('Error fetching API:', error);

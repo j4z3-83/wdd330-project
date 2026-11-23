@@ -21,9 +21,9 @@ function playRandomOgg() {
     });
 }
 
-// 2. Sprite Sheet Setup (Replace with your own sprite sheet)
+// 2. Sprite Sheet Setup
 const sprite = new Image();
-sprite.src = "villager-walking-sprite-sheet.gif"; // Example: 7 frames arranged horizontally
+sprite.src = "villager-walking-sprite-sheet.png";
 let spriteLoaded = false;
 
 sprite.onload = () => {
@@ -47,7 +47,6 @@ const character = {
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw a simple ground line
     ctx.fillStyle = "#4a5568";
     ctx.fillRect(0, character.y + character.height, canvas.width, 4);
 
@@ -56,7 +55,7 @@ function animate() {
 
     // Stop the animation loop once the character completely exits the right edge
     if (character.x > canvas.width) {
-        return; // Exits the function without calling requestAnimationFrame
+        return;
     }
 
     // Advance the walk cycle frame
@@ -89,9 +88,14 @@ function animate() {
 
 // 5. Start Trigger
 startButton.addEventListener("click", () => {
-    character.x = -300; // Reset position if clicked again
-    playRandomOgg();
+    character.x = -300;
+
+    setTimeout(() => {
+        playRandomOgg();
+    }, 2000)
+
     animate();
+
     siteLinks.classList.add('animate');
     startButton.remove();
 });

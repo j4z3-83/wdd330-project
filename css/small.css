@@ -65,8 +65,7 @@ body {
 
 .hamburger {
     padding: 1rem;
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.2);
+    grid-row: 1;
 }
 
 .ham-menu {
@@ -113,14 +112,18 @@ body {
 
 /* --- HEADER STYLES --- */
 header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr;
+    padding: 1rem;
 }
 
 header img {
+    grid-row: 1;
     height: 75px;
 }
 
 .site-title {
+    grid-row: 1;
     font-size: 1.5rem;
     color: var(--text-color1);
     align-self: center;
@@ -191,8 +194,12 @@ canvas {
     text-decoration: none;
 }
 
+#biomeCard, 
+#enchantmentCard, 
+#itemCard, 
 #mobCard,
-#biomeCard {
+#structureCard,
+#tradeCard {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     margin: 2rem;
@@ -201,13 +208,20 @@ canvas {
     text-align: center;
 }
 
+.biome-entry,
+.enchantment-entry,
+.item-entry,
 .mob-entry,
-.biome-entry{
+.structure-entry,
+.trade-entry {
     background-color: var(--secondary-color);
     border-radius: 10px;
 }
 
+.biome-image,
+.item-image,
 .mob-image,
-.biome-image {
+.structure-image,
+.trade-image {
     height: 100px;
 }

@@ -11,6 +11,8 @@ async function getData() {
         const data = await response.json();
         const items = Array.isArray(data) ? data : (data.data);
 
+        console.log(data);
+
         mobCard.innerHTML = '';
 
         // Note: If your array is nested (e.g., data.results), use data.results.forEach(...)
@@ -22,15 +24,16 @@ async function getData() {
             item.classList.add('mob-entry');
             image.classList.add('mob-image');
 
-            image.src = `./images/mobs/${fileName}-face.webp`;
-            image.alt = entry.name
-            
+            image.src = `./images/mobs/${fileName}.webp`;
+            image.alt = entry.name;
+            image.loading = 'lazy';
+
             item.innerHTML = `
-            <h2>${entry.name}</h2>
+            <h3>${entry.name}</h3>
             <p>Type: ${entry.type}</p>
             `;
 
-            item.appendChild(image)
+            item.appendChild(image);
             mobCard.appendChild(item);
         });
     } catch (error) {

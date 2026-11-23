@@ -1,66 +1,19 @@
 @media screen and (min-width: 64rem) {
     :root {
-            --primary-color: #175411;
-            --secondary-color: #a592bf;
-            --accent-color: #e0d9a5;
-            --text-color1: #ffffff;
-            --text-color2: #000000;
-        }
-
-    header {
-        padding-left: 60px;
-        display: grid;
-        grid-template-columns: 100px auto;
-    }
-
-    header img {
-        height: 100px;
-        margin-left: -2.5rem;
-        grid-column: 1;
-        grid-row: 1 / span 2;
+        --primary-color: #175411;
+        --secondary-color: #a592bf;
+        --accent-color: #e0d9a5;
+        --text-color1: #ffffff;
+        --text-color2: #000000;
     }
 
     .site-title {
+        grid-row: 1;
         font-size: 2rem;
-        color: #fff;
-        margin-left: -10rem;
-        align-self: center;
+        color: var(--text-color1);
+        align-self: start;
         text-align: center;
-        grid-column: 2;
     }
-
-    .hamburger {
-        display: none;
-    }
-
-    .on-screen-menu {
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
-    }
-
-    .on-screen-menu ul {
-        display: flex;
-        justify-content: center;
-        align-items: start;
-        gap: 3rem;
-        margin-left: 11rem;
-    }
-
-    .on-screen-menu .navigationul li {
-        list-style: none;
-    }
-
-    .on-screen-menu li a {
-        text-decoration: none;
-        max-width: 170px;
-    }
-
-    .on-screen-menu li a.active {
-        background-color: var(--accent-color);
-        color: var(--text-color2);
-    }
-
 
     #siteLinks {
         display: flex;
@@ -105,5 +58,5 @@
         text-decoration: none;
     }
 
-    
+
 }
