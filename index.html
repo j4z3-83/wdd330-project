@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>wdd330 project | home</title>
-  
+
   <link rel="stylesheet" href="./css/small.css" />
   <link rel="stylesheet" href="./css/large.css" />
 
@@ -21,7 +21,41 @@
     <img src="images/villager-head-logo.webp" alt="Minecraft Logo">
     <h1 class="site-title">Minecraft Info Dump</h1>
 
+    <nav class="on-screen-menu">
+      <ul class="navigationul">
+        <li><a href="index.html" class="btn">Home</a></li>
+        <li><a href="page-mobs.html" class="btn">Mobs</a></li>
+        <li><a href="page-biomes.html" class="btn">Biomes</a></li>
+        <li><a href="page-items.html" class="btn">Items</a></li>
+        <li><a href="page-enchantments.html" class="btn">Enchantments</a></li>
+        <li><a href="page-structures.html" class="btn">Structures</a></li>
+        <li><a href="page-trades.html" class="btn">Trades</a></li>
+        <li><a href="page-seed-finder.html" class="btn">Seed Finder</a></li>
+      </ul>
+    </nav>
+
+    <div class="off-screen-menu">
+      <ul class="navigationul">
+        <li><a href="index.html" class="btn">Home</a></li>
+        <li><a href="page-mobs.html" class="btn">Mobs</a></li>
+        <li><a href="page-biomes.html" class="btn">Biomes</a></li>
+        <li><a href="page-items.html" class="btn">Items</a></li>
+        <li><a href="page-enchantments.html" class="btn">Enchantments</a></li>
+        <li><a href="page-structures.html" class="btn">Structures</a></li>
+        <li><a href="page-trades.html" class="btn">Trades</a></li>
+        <li><a href="page-seed-finder.html" class="btn">Seed Finder</a></li>
+      </ul>
+    </div>
+
+    <nav class="hamburger">
+      <div class="ham-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
   </header>
+
   <main>
     <h2></h2>
     <p></p>
@@ -40,17 +74,26 @@
     </div>
 
     <canvas id="gameCanvas"></canvas>
-
   </main>
 
-  <script>
-    const startButton = document.getElementById('startButton');
-    const siteLinks = document.getElementById('siteLinks');
-
-    startButton.addEventListener('click', () => {
-
-    });
-  </script>
+  <footer>
+    <div class="myinfo">
+      <p class="info">
+        WDD231 Class Project<br>
+        Jared Aldridge<br>
+        <span id="currentYear"></span> The Manga db<br>
+        <span id="lastModified"></span>
+      </p>
+    </div>
+    <nav class="sociallinks">
+      <a href="https://github.com/j4z3-83">
+        <img src="images/github.svg" class="colored-svg" alt="github logo">
+      </a>
+      <a href="https://www.linkedin.com/feed/">
+        <img src="images/linkedin.svg" class="colored-svg" alt="linkedin logo">
+      </a>
+    </nav>
+  </footer>
 
 </body>
 

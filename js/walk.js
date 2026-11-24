@@ -6,24 +6,37 @@ const siteLinks = document.getElementById("siteLinks");
 canvas.width = window.innerWidth;
 canvas.height = 300;
 
-// 1. Audio Setup (Add your .ogg file paths here)
+// 1. Audio Setup
 const oggFiles = [
-    "villager-idle1.ogg",
-    "villager-idle2.ogg",
-    "villager-idle3.ogg"
+    "sounds/villager-idle1.ogg",
+    "sounds/villager-idle2.ogg",
+    "sounds/villager-idle3.ogg"
 ];
 
+let isWalking = false;
+let currentAudio = null;
+let soundTimeout = null;
+
 function playRandomOgg() {
+    if (!isWalking) return;
+
     const randomIndex = Math.floor(Math.random() * oggFiles.length);
-    const audio = new Audio(oggFiles[randomIndex]);
-    audio.play().catch(error => {
+    currentAudio = new Audio(oggFiles[randomIndex]);
+
+    currentAudio.addEventListener("ended", () => {
+        if (isWalking) {
+            soundTimeout = setTimeout(playRandomOgg, 2000);
+        }
+    });
+
+    currentAudio.play().catch(error => {
         console.warn("Audio playback failed (likely blocked by browser):", error);
     });
 }
 
 // 2. Sprite Sheet Setup
 const sprite = new Image();
-sprite.src = "villager-walking-sprite-sheet.png";
+sprite.src = "images/villager-walking-sprite-sheet.png";
 let spriteLoaded = false;
 
 sprite.onload = () => {
@@ -32,15 +45,15 @@ sprite.onload = () => {
 
 // 3. Character Configuration
 const character = {
-    x: -300, // Start just off the left edge
-    y: 50, // Ground height
-    width: 300, // Width of a single frame on screen
-    height: 256, // Height of a single frame on screen
-    speed: 4, // Pixels moved per frame
-    frameX: 0, // Current animation frame (0 to totalFrames - 1)
-    totalFrames: 7, // Total columns in your sprite sheet
+    x: -300,
+    y: 50,
+    width: 300,
+    height: 256,
+    speed: 4,
+    frameX: 0,
+    totalFrames: 7,
     frameTimer: 0,
-    frameInterval: 5 // Lower = faster leg movement
+    frameInterval: 5
 };
 
 // 4. Main Animation Loop
@@ -55,6 +68,8 @@ function animate() {
 
     // Stop the animation loop once the character completely exits the right edge
     if (character.x > canvas.width) {
+        isWalking = false;
+        clearTimeout(soundTimeout);
         return;
     }
 
@@ -89,10 +104,11 @@ function animate() {
 // 5. Start Trigger
 startButton.addEventListener("click", () => {
     character.x = -300;
+    isWalking = true;
 
-    setTimeout(() => {
+    soundTimeout = setTimeout(() => {
         playRandomOgg();
-    }, 2000)
+    }, 1000)
 
     animate();
 

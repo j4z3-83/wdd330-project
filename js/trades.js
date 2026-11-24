@@ -1,6 +1,6 @@
-import { HamburgerButton } from "./HamburgerButton.mjs";
+import { hamburgerButton } from "./HamburgerButton.mjs";
 
-HamburgerButton();
+hamburgerButton();
 
 async function getData() {
     const url = `https://api.astroworldmc.com/api/v1/trades`;

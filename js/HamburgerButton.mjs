@@ -1,5 +1,5 @@
-export function HamburgerButton() {
-	
+export function hamburgerButton() {
+
 	//MENU HAMBURGER BUTTON
 	const hamMenu = document.querySelector('.ham-menu');
 	const offScreenMenu = document.querySelector('.off-screen-menu');

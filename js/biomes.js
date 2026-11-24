@@ -1,6 +1,15 @@
-import { HamburgerButton } from "./HamburgerButton.mjs";
+import { hamburgerButton } from "./HamburgerButton.mjs";
 
-HamburgerButton();
+hamburgerButton();
+
+const modal = document.getElementById('modal');
+const modalContent = document.getElementById('modalContent');
+const closeModal = document.getElementById('closeModal');
+
+closeModal.addEventListener('click', () => modal.close());
+modal.addEventListener('click', (e) => {
+    if (e.targert === modal) modal.style.display = 'none';
+});
 
 async function getData() {
     const url = `https://api.astroworldmc.com/api/v1/biomes`;
@@ -20,12 +29,12 @@ async function getData() {
             const item = document.createElement('div');
             const image = document.createElement('img');
             const fileName = entry.name.toLowerCase().replace(/\s+/g, '-');
-
+            const imagePath = `./images/biomes/${fileName}.webp`;
 
             item.classList.add('biome-entry');
             image.classList.add('biome-image');
 
-            image.src = `./images/biomes/${fileName}.webp`;
+            image.src = imagePath;
             image.alt = entry.name;
             image.loading = 'lazy';
 
@@ -35,6 +44,28 @@ async function getData() {
             `;
 
             item.appendChild(image)
+
+            item.addEventListener('click', () => {
+                const mobsList = entry.spawningMobs.join('<br>');
+                const structuresList = entry.structuresFound.join('<br>');
+                const terrainList = entry.terrainFeatures.join('<br>');
+                const blocksList = entry.uniqueBlocks.join('<br>');
+
+                modalContent.innerHTML = `
+                <h2>${entry.name}</h2>
+                <img src="${imagePath}" alt="${entry.name}" class="modal-image">
+                <p><strong>Dimension:</strong> ${entry.dimension}</p>
+                <p><strong>Category:</strong> ${entry.category}</p>
+                <p><strong>Precipitation:</strong> ${entry.precipitation}</p>
+                <p><strong>Spawning Mobs:<br></strong>${mobsList || 'None'}</p>
+                <p><strong>Structures Found:<br></strong>${structuresList || 'None'}</p>
+                <p><strong>Terrain Features:<br></strong>${terrainList || 'None'}</p>
+                <p><strong>Unique Blocks:<br></strong>${blocksList || 'None'}</p>
+                <p><strong>Notes:<br></strong>${entry.notes}</p>
+                `;
+                modal.showModal();
+            });
+
             biomeCard.appendChild(item);
         });
     } catch (error) {

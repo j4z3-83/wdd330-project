@@ -1,3 +1,3 @@
-import { HamburgerButton } from "./HamburgerButton.mjs";
+import { hamburgerButton } from "./HamburgerButton.mjs";
 
-HamburgerButton();
+hamburgerButton();
