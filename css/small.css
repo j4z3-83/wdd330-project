@@ -226,7 +226,7 @@ canvas {
     height: 100px;
 }
 
-#modal {
+#modal[open] {
     position: relative;
     inset: 0;
     min-width: 320px;

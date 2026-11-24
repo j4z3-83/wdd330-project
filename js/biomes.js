@@ -60,9 +60,9 @@ async function getData() {
                 <p><strong>Spawning Mobs:<br></strong>${mobsList || 'None'}</p>
                 <p><strong>Structures Found:<br></strong>${structuresList || 'None'}</p>
                 <p><strong>Terrain Features:<br></strong>${terrainList || 'None'}</p>
-                <p><strong>Unique Blocks:<br></strong>${blocksList || 'None'}</p>
-                <p><strong>Notes:<br></strong>${entry.notes}</p>
+                <p><strong>Unique Blocks:<br></strong>${terrainList || 'None'}</p>
                 `;
+                
                 modal.showModal();
             });
 
