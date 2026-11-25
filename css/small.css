@@ -239,6 +239,8 @@ canvas {
 }
 
 #modalContent {
+    position: absolute;
+    top: 1%;
     background-color: var(--secondary-color);
     min-width: 300px;
     max-width: 500px;
